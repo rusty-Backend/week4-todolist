@@ -3,7 +3,7 @@ Week 4 task: todo list
 
 This project is a mobile application that allows the user to add tasks to a list. Tasks are saved locally on the device using AsyncStorage.
 
-![image alt](https://github.com/rusty-Backend/week4-todolist/blob/10bcee0405805123dd0500e6a35164a8e16a9f76/Screenshot-todo)
+<img src="https://github.com/rusty-Backend/week4-todolist/blob/10bcee0405805123dd0500e6a35164a8e16a9f76/Screenshot-todo)" alt="Todo List Screenshot" width="500">
 
 ## Structure
 
