@@ -1,7 +1,7 @@
 # week4-todolist
 Week 4 task: todo list
 
-In this we created an application which adds defined tasks to the list. List items are saved in phone local storage using AsyncStorage.
+This project is a mobile application that allows the user to add tasks to a list. Tasks are saved locally on the device using AsyncStorage.
 
 ## Structure
 
@@ -12,49 +12,51 @@ The code is split into three different files:
 /components/TodoItem.tsx
 
 TodoItem.tsx:
--This is the displayed item in the list.
+-Represents a single item in the list
 -Variables: id, text and done
--It shows the task name and if it is done or undone.
--User can toggle the item checkbox to mark it done or undone
+-Displays the task name and its completion state
+-The user can toggle the checkbox to mark the task as done or undone
 
 TodoInputField.tsx:
--Handles the input of addTodo
+-Handles adding new tasks
 -Includes the input textfield and the add button (+)
 
 App.tsx:
 -Contains Load, Save, Add, Toggle and List logic 
--TodoItem and TodoInputField just feed the input for App.tsx
+-TodoItem and TodoInputField send user input to App.tsx
+-Stores and manages the todo state
 
 ## Additional features
 
-At first I did the "marked as done/undone by pressing a row/line on list" part but it didn't feel like something that I would personally do in application. So instead I used "expo-checkbox" and added toggle done/undone into that. The task is still has the "line-through" when it is marked as done.
+At first I did the "marked as done/undone by pressing a row/line on list" part. However, it didn't feel like natural UI solution for mobile app. Instead I used "expo-checkbox" and implemented toggle done/undone into that. Completed tasks still display a "line-through" when it is marked as done.
 
-Added some simple styling like Pink (+)-button and small spacer line in between of tasks.
+Added some simple styling like Pink (+)-button and small separato line between tasks.
 
 How it would be done without out the checkbox.
 Currently we have 
 
 ```tsx
 <View style={styles.row}>
-      <Text
-        style={[
-          styles.text,
-          item.done && styles.doneText
-        ]}
-      >
-        {item.text}
-      </Text>
+  <Text
+    style={[
+      styles.text,
+      item.done && styles.doneText
+    ]}
+  >
+    {item.text}
+  </Text>
 
-      <Checkbox
-        value={item.done}
-        onValueChange={onToggle}
-      />
-    </View>
+  <Checkbox
+    value={item.done}
+    onValueChange={onToggle}
+  />
+</View>
 ```
 
-    Where the Checkbox only has the toggle handler.
+Here only the checkbox handles the toggle action.
 
-    To make it to match assigment we would change it to:
+To match the original assignment requirement, the row could instead be made pressable:
+
 ```tsx
 <Pressable style={styles.row} onPress={onToggle}>
   <Text
@@ -68,5 +70,10 @@ Currently we have
 </Pressable>
 ```
 
-So now the whole row is pressable and handles the toggle.
+
+In this version, the entire row is pressable and handles the toggle action.
+
+## Further improvement
+
+Currently, all logic is located in App.tsx, which is fine for an application of this size. In larger projects, the logic should be moved into its own subfolder or separate files.
       
