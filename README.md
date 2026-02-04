@@ -3,7 +3,7 @@ Week 4 task: todo list
 
 This project is a mobile application that allows the user to add tasks to a list. Tasks are saved locally on the device using AsyncStorage.
 
-<img src="Screenshot-todo" width="500" alt="Todo List Screenshot">
+<img src="Screenshot-todo" width="250" alt="Todo List Screenshot">
 
 ## Structure
 
